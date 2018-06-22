@@ -8,7 +8,8 @@
 window.plugins.radar =
   bind: (div, item) ->
   emit: (div, item) ->
-    wiki.getScript '/js/d3/d3.min.js', ->
+    scriptURL =  wiki.clientOrigin + '/js/d3/d3.min.js'
+    wiki.getScript scriptURL, ->
       div.append '''
         <style>
         svg { font: 10px sans-serif; }
