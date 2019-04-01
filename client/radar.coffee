@@ -123,7 +123,7 @@ window.plugins.radar =
         left: 0
 
       dimension = keys.length
-      ruleColor = "#CCC"
+      ruleColor = "#EEE"
 
       angle = (i) ->
         (i / dimension) * 2 * Math.PI
@@ -199,10 +199,13 @@ window.plugins.radar =
         .style("stroke", ruleColor)
         .style "fill", "none"
       lineAxes.append("svg:text")
-        .text((d,i) -> keys[i])
+        .text((d,i) -> keys[i][0..19])
+        .attr('x',5)
+        .attr('y',-5)
         .attr("text-anchor", "start")
         .style("stroke", ruleColor)
         .style("cursor", 'pointer')
+        .style("font-size","14px")
         .attr("transform", "rotate(180)")
         .on("click", (d,i) ->
           wiki.doInternalLink keys[i], $(div).parents('.page')
